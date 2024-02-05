@@ -10,21 +10,32 @@ int *pa = &a;
 // Solution for Q_4
 int b = 90;
 pa = &b;
+  
+  // Solution for Q_5
+void change_int(int *point){
+  *point = 80;
+}
 
-// Solution for Q_5
-
-// Solution for Q_6
-
-
-// Solution for Q_7
-
+int main(){
+  // Solution for Q_6
+  change_int(&a);
+  
+  // Solution for Q_7
+  change_int(pa);
+  printf("%d", a);
+}
 // Solution for Q_8
+int **ppa;
 
 // Solution for Q_9
+ppa = *pa;
 
 // Solution for Q_10
-
+void change_ppint(int **p){
+  **p = 46;
+}
 // Solution for Q_11
+void 
 
 // Solution for Q_12
 
