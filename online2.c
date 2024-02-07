@@ -29,13 +29,57 @@ int main(){
   change_ppint(ppa);
 
   // Solution for Q_13
-  change_pointer(&pa);
+  change_int_ptr(&pa);
 
   // Solution for Q_14
-  change_pointer(ppa);
+  change_int_ptr(ppa);
 
-  // Solution for Q_13
-  int[] = {5,6,7};
+  // Solution for Q_15
+  int arr[] = {5,6,7};
+
+  // Solution for Q_17
+  change_arr(arr);
+
+  // Solution for Q_18
+  int p_block[] = (int *)malloc(sizeof(int) * 3);
+  change_arr(p_block); 
+
+  // Solution for Q_19
+  change_int(p_block);
+
+  //Solution for Q_20
+  change_int_ptr(&p_block);
+
+  // Solution for Q_21
+  student s = {"Allan", 18, "University of Toronto"};
+
+  // Solution for Q_22
+  strcpy(s.name, "Jennifer");
+
+  // Solution for Q_23
+  s.age = 21;
+
+  // Solution for Q_24
+  student *p_s = &Allan;
+
+  // Solution for Q_25
+  strcpy(p_s->name, "Jenny");
+
+  // Solution for Q_26
+  p_s->age = 20;
+
+  // Solution for Q_29
+  change_name(p_s);
+
+  // Solution for Q_30
+  change_age(&s);
+
+  // Solution for Q_31
+  student arr[5];
+
+  // Solution for Q_32
+  change_name(arr[2]);
+  change_age(arr[2]);
 }
 // Solution for Q_8
 int **ppa;
@@ -48,7 +92,7 @@ void change_ppint(int **p){
   **p = 46;
 }
 // Solution for Q_11
-void change_pointer(int **p){
+void change_int_ptr(int **p){
   *p = (int *)malloc(sizeof(int));
 }
 
@@ -57,31 +101,24 @@ void change_arr(int *arr){
   *(arr+2) = 8;
 }
 
-// Solution for Q_17
-
-// Solution for Q_18
-
-// Solution for Q_19
-
-// Solution for Q_20
-
 // Solution for Q_21
-
-// Solution for Q_22
-
-// Solution for Q_23
-
-// Solution for Q_24
-
-// Solution for Q_25
-
-// Solution for Q_26
+typedef struct student{
+  char name[500];
+  int age;
+  char school[2000];
+} student;
 
 // Solution for Q_27
+void change_name(student *s){
+  strcpy(s->name, "Jenny");
+}
 
 // Solution for Q_28
+void change_age(student *s){
+  s->age = 20;
+}
 
-// Solution for Q_29
+
 
 // Solution for Q_30
 
