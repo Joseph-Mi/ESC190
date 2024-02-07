@@ -60,7 +60,7 @@ int main(){
   s.age = 21;
 
   // Solution for Q_24
-  student *p_s = &Allan;
+  student *p_s = &s;
 
   // Solution for Q_25
   strcpy(p_s->name, "Jenny");
