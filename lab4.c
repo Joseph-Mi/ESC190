@@ -37,5 +37,7 @@ int main(){
     fgets(line, sizeof(line), fp); //read in at most sizeof(line) characters //(including ’\0’) into line.
     printf("%s", line);
   }
+
+  
 }
 

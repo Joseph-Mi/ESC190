@@ -1,38 +1,78 @@
-// Solution for Q_1
-int a = 42;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// Solution for Q_2
-int *pa = &a;
+ void change_int(int *p_int)
+{
+  *p_int = 88;
+}
 
-// Solution for Q_3
-*pa = 43;
+// Solution for Q_10
+void change_int2(int **p_p_int)
+{
+  **p_p_int = 46;
+}
+// Solution for Q_11
+void change_int_ptr(int **p){
+  *p = (int *)malloc(sizeof(int));
+}
 
-// Solution for Q_4
-int b = 90;
-pa = &b;
-  
-  // Solution for Q_5
-void change_int(int *point){
-  *point = 80;
+// Solution for Q_16
+void change_arr(int *arr){
+  *(arr+2) = 8;
+}
+
+// Solution for Q_21
+typedef struct student{
+  char name[500];
+  int age;
+  char school[2000];
+} student;
+
+// Solution for Q_27
+void change_name(student *s){
+  strcpy(s->name, "Jenny");
+}
+
+// Solution for Q_28
+void change_age(student *s){
+  s->age = 20;
 }
 
 int main(){
+  // Solution for Q_1
+  int a = 42;
+
+  // Solution for Q_2
+  int *p_a = &a;
+
+  // Solution for Q_3
+  *p_a = 43;
+
+  // Solution for Q_4
+  int b = 90;
+  p_a = &b;
   // Solution for Q_6
   change_int(&a);
   
   // Solution for Q_7
-  change_int(pa);
-  printf("%d", a);
+  change_int(p_a);
+
+  // Solution for Q_8
+  int **p_p_a;
+
+  // Solution for Q_9
+  p_p_a = &p_a; // Fixed assignment
 
   // Solution for Q_12
-  change_ppint(&pa);
-  change_ppint(ppa);
+  change_ppint(&p_a);
+  change_ppint(p_p_a);
 
   // Solution for Q_13
-  change_int_ptr(&pa);
+  change_int_ptr(&p_a);
 
   // Solution for Q_14
-  change_int_ptr(ppa);
+  change_int_ptr(p_p_a);
 
   // Solution for Q_15
   int arr[] = {5,6,7};
@@ -41,7 +81,7 @@ int main(){
   change_arr(arr);
 
   // Solution for Q_18
-  int p_block[] = (int *)malloc(sizeof(int) * 3);
+  int *p_block = (int *)malloc(sizeof(int) * 3); // Added missing cast
   change_arr(p_block); 
 
   // Solution for Q_19
@@ -78,50 +118,6 @@ int main(){
   student arr[5];
 
   // Solution for Q_32
-  change_name(arr[2]);
-  change_age(arr[2]);
+  change_name(&(arr[2])); // Pass address of arr[2]
+  change_age(&(arr[2]));  // Pass address of arr[2]
 }
-// Solution for Q_8
-int **ppa;
-
-// Solution for Q_9
-ppa = *pa;
-
-// Solution for Q_10
-void change_ppint(int **p){
-  **p = 46;
-}
-// Solution for Q_11
-void change_int_ptr(int **p){
-  *p = (int *)malloc(sizeof(int));
-}
-
-// Solution for Q_16
-void change_arr(int *arr){
-  *(arr+2) = 8;
-}
-
-// Solution for Q_21
-typedef struct student{
-  char name[500];
-  int age;
-  char school[2000];
-} student;
-
-// Solution for Q_27
-void change_name(student *s){
-  strcpy(s->name, "Jenny");
-}
-
-// Solution for Q_28
-void change_age(student *s){
-  s->age = 20;
-}
-
-
-
-// Solution for Q_30
-
-// Solution for Q_31
-
-// Solution for Q_32
