@@ -1,0 +1,16 @@
+Lab 10!
+Lab 10
+======
+
+Q1. In class, we implemented graphs by storing the neighbours of a node as elements of a dictionary. Change that to use linked lists to store the neighbours for each node. Use our Python implementation of linked lists, in a separate file, and import it.
+
+Q2. Implement the are_linked function for the graph implementation that uses adjcency lists stored as linked lists. Test your code
+
+Q3. Implement the equivalent of Q1 and Q2 in C:
+Q3a. Make a linked list of GraphNode elements
+Q3b. Make each GraphNode element have its own linked list as a member. This linked list should store the neighbour of the GraphNode
+Q3c. Implement is_linked in C
+
+Q4. Implement the graph ADT using an adjacency matrix in C. One issue is that we do not have a built-in dictionary type in C. Implement you own (likely slow) functionality for mapping strings to indices by implementing the function get_ind_from_str(char *str, char **strs), where strs[i] is the i-th string
+
+#pin

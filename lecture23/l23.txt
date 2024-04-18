@@ -1,0 +1,16 @@
+y,x
+(3,0) y = 3, x = 0
+ 
+
+rgb values from 0-255
+each pizel is an rgb values
+(0,0,0) = black as intensity for all pixels are 0
+printers will have many colours layered on and be seen as a single colours
+
+(255,255,255) = white
+
+compute energy(difference of color to right and to left) This is how colors of majority are removed
+high energy if change in color is dramatic
+
+##How to store this type of thing?
+i pyth

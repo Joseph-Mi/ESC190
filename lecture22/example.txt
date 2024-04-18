@@ -1,0 +1,31 @@
+Goal: 11
+can have: 7, 5, 1
+using largest: 7 + 4*1  // 5 iterations
+optimal: 5 + 5 + 1      //3 iterations
+
+
+
+
+opt(11): least num of coins to make 11
+if we use 7c: then num of coins is 1 + opt(11-7)
+if we use 1c: num of coins = 1 + opt(11-1)
+if we use 5c: num of coins = 1 + opt(11-5)
+
+opt(11) = 1 + min(opt(11-7), opt(11-1), opt(11-5))
+think:  ill just do a recursion
+        or ill just do opt(1), opt(2), etc
+opt(v - d) + 1 coin:
+try every possible d < v
+
+opt(v): 
+    1. inf, v < 0
+    2. 0, v = 0
+    3. min(1 + opt(v-d)), v > 0
+
+    Alternative(worse) approach:
+    11 = 0 + 11
+        = 1 + 10
+        = 2 + 9
+
+    opt(11) = min opt(opt(0), opt(11))
+            = opt(1) + opt(10)
