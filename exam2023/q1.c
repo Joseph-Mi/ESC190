@@ -8,7 +8,7 @@ double fact(int n){
     } else{
         return (n * fact(n-1));
     }
-}
+} // Runtime complexity of this function: O(n)
 
 int main(){
     int n = 5;
