@@ -10,7 +10,8 @@ double fact(int n){
     }
 } // Runtime complexity of this function: O(n)
 
+
 int main(){
-    int n = 5;
+    int n = 1;
     printf("%lf", fact(n));
 }

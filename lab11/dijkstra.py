@@ -13,28 +13,58 @@ class Con:
 
 def dijkstra(start, end):
     start.distance_from_start = 0
-    visited = set([start])
-    current = start
-    while current != end:
-        
+    visited = set()
+    while end not in visited:
         cur_dist = np.inf
         cur_v = None
-        for node in visited:
-            for con in node.connections:
-                if con.node in visited:
-                    continue
-                if cur_dist > node.distance_from_start + con.weight:
-                    cur_dist = node.distance_from_start + con.weight
-                    cur_v = con.node
+        for node in start.connections:
+            if node.node in visited:
+                continue
+            if cur_dist > start.distance_from_start + node.weight:
+                cur_dist = start.distance_from_start + node.weight
+                cur_v = node.node
 
         if cur_v is None:
-            print("no connections")
-            exit()
+            print("No path exists")
+            return np.inf
 
-        current = cur_v
-        current.distance_from_start = cur_dist
-        visited.add(current)
-    return current.distance_from_start
+        cur_v.distance_from_start = cur_dist
+        visited.add(start)
+        start = cur_v
+    
+    return end.distance_from_start
+
+# def dijkstra(start, end):
+#     start.distance_from_start = 0
+#     visited = set()
+#     while start not in visited:
+#         cur_dist = np.inf
+#         cur_v = None
+#         for node in start.connections:
+#             if node.node in visited:
+#                 continue
+#             if cur_dist > start.distance_from_start + node.weight:
+#                 cur_dist = start.distance_from_start + node.weight
+#                 cur_v = node.node
+
+#         if cur_v is None:
+#             print("No path exists")
+#             return np.inf
+
+#         cur_v.distance_from_start = cur_dist
+#         visited.add(start)
+#         start = cur_v
+    
+#     return end.distance_from_start
+
+# Example usage:
+# node1 = Node(1)
+# node2 = Node(2)
+# node3 = Node(3)
+# node1.connections.append(Con(node2, 5))
+# node2.connections.append(Con(node3, 3))
+# print(dijkstra(node1, node3))  # Output should be 8
+
 
 def main():
     a = Node("A")
@@ -43,17 +73,16 @@ def main():
     d = Node("D")
 
     a.connections.append(Con(b, 5))
-    # a.connections.append(Con(c, 10))
-    # a.connections.append(Con(d, 2))
+    a.connections.append(Con(c, 10))
+    a.connections.append(Con(d, 2))
     d.connections.append(Con(c, 12))
     d.connections.append(Con(b, 6))
     b.connections.append(Con(c, 2))
-    # c.connections.append(Con(d, 1))
+    c.connections.append(Con(d, 1))
     
     start = a
     end = d
-    len = dijkstra(start, end)
-    print(len)
+    length = dijkstra(start, end)
+    print("The distance between A and D is:", length)
 
-if __name__ == "__main__":
-    main()
+main()
